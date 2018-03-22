@@ -1,8 +1,9 @@
-package tr.com.nuevo.dagger_rxandroid_database_mvp;
+package tr.com.nuevo.dagger_rxandroid_database_mvp.base;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -21,9 +22,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         onViewReady(savedInstanceState, getIntent());
     }
 
-
+    @CallSuper
     protected void onViewReady(Bundle savedInstanceState, Intent intent) {
+        resolverDaggerDependency();
+    }
 
+    protected void resolverDaggerDependency() {
     }
 
     protected void showDialog(String message) {
